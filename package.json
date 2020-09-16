@@ -1,6 +1,6 @@
 {
   "name": "@hackycy/egg-typeorm",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "TypeORM For Eggjs",
   "eggPlugin": {
     "name": "typeorm"
@@ -53,9 +53,9 @@
     "url": "git+https://github.com/eggjs/egg-typeorm.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/hackycy/egg-typeorm/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-typeorm#readme",
+  "homepage": "https://github.com/hackycy/egg-typeorm",
   "author": "hackycy",
   "license": "MIT"
 }
