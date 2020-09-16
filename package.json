@@ -1,5 +1,5 @@
 {
-  "name": "egg-typeorm",
+  "name": "@hackycy/egg-typeorm",
   "version": "1.0.0",
   "description": "TypeORM For Eggjs",
   "eggPlugin": {
