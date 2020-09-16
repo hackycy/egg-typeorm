@@ -50,7 +50,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-typeorm.git"
+    "url": "git+https://github.com/hackycy/egg-typeorm.git"
   },
   "bugs": {
     "url": "https://github.com/hackycy/egg-typeorm/issues"
