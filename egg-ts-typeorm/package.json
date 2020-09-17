@@ -1,0 +1,107 @@
+{
+  "_from": "egg-ts-typeorm",
+  "_id": "egg-ts-typeorm@1.1.12",
+  "_inBundle": false,
+  "_integrity": "sha512-qmWKDijcEctpUDXaaIf0h51z3oCjmaEaz+4X/tvK4qr9Iowqlyj9tvAxY4RlzACMumntB1qA4H/eJfWw1gD/Aw==",
+  "_location": "/egg-ts-typeorm",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "egg-ts-typeorm",
+    "name": "egg-ts-typeorm",
+    "escapedName": "egg-ts-typeorm",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/egg-ts-typeorm/-/egg-ts-typeorm-1.1.12.tgz",
+  "_shasum": "5fce36bb8cc25e25f6631f7c719bd728927d875a",
+  "_spec": "egg-ts-typeorm",
+  "_where": "/Users/zjyzy/WorkPlace/vscode/siyee-api-server",
+  "author": {
+    "name": "weiyuqun",
+    "email": "anan4094@icloud.com"
+  },
+  "bundleDependencies": false,
+  "ci": {
+    "version": "8, 10"
+  },
+  "dependencies": {
+    "glob": "^7.1.4",
+    "lodash": "^4.17.14",
+    "typeorm": "^0.2.18",
+    "uglify-es": "^3.3.9",
+    "uglify-js": "^3.6.0",
+    "yamljs": "^0.3.0"
+  },
+  "deprecated": false,
+  "description": "Typeorm for egg",
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "egg": "^2.22.2",
+    "egg-bin": "^4.13.0",
+    "egg-ci": "^1.12.0",
+    "ts-node": "^8.3.0"
+  },
+  "egg": {
+    "typescript": true,
+    "framework": "egg",
+    "tsHelper": {
+      "watchDirs": {
+        "typeorm": {
+          "trigger": [
+            "add",
+            "unlink",
+            "change"
+          ],
+          "enabled": true,
+          "directory": ".",
+          "generator": "egg-ts-typeorm/generator",
+          "pattern": [
+            "**/*.(ts|js)",
+            "ormconfig.json"
+          ],
+          "watch": true
+        }
+      }
+    }
+  },
+  "eggPlugin": {
+    "name": "typeorm"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "index.js",
+    "app.js",
+    "generator.js",
+    "app/**/*.js",
+    "lib/**/*.js",
+    "package.json",
+    "index.d.ts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "egg",
+    "typeorm",
+    "eggPlugin",
+    "egg-plugin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "egg-ts-typeorm",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node uglify.js",
+    "clean": "ets clean"
+  },
+  "types": "index.d.ts",
+  "version": "1.1.12"
+}
