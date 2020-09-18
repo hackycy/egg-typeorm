@@ -14,9 +14,9 @@ exports.typeorm = {
     password: '123456',
     database: 'test',
     synchronize: true,
-    logging: false
-  }
-}
+    logging: false,
+  },
+};
 
 // config.typeorm = {
 //   clients: [{
