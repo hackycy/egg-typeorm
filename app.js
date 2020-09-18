@@ -1,7 +1,7 @@
 'use strict';
 
-const { connectDB, loadEntityAndModel } = require('./lib/connect');
-const { watchEntity } = require('./lib/dts');
+const { connect, loadEntityAndRepoToContext } = require('./lib/connect');
+const { getConnectionOptions } = require('./lib/utils');
 
 module.exports = app => {
   // 获取配置
@@ -11,13 +11,12 @@ module.exports = app => {
     throw new Error('please config typeorm in config file');
   }
 
-  app.beforeStart(async () => {
+  app.didLoad(async () => {
     try {
-      await connectDB(app);
-      // if (app.config.env === 'local') {
-      watchEntity(app);
+      const connectionOptions = getConnectionOptions(app);
+      await connect(app, connectionOptions);
       // }
-      await loadEntityAndModel(app);
+      await loadEntityAndRepoToContext(app, connectionOptions);
       app.logger.info('[typeorm]', '数据链接成功');
     } catch (error) {
       app.logger.error('[typeorm]', '数据库链接失败');

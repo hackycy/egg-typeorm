@@ -7,6 +7,7 @@ const e = require("typeorm"),
   o = require("path"),
   n = require("glob"),
   r = require("./util");
+  // s 为repo
 async function i(i, c, s, a) {
   const {
     baseDir: l
