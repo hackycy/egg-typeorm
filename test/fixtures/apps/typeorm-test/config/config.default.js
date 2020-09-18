@@ -17,4 +17,5 @@ exports.typeorm = {
     migrationsDir: 'app/migration',
     subscribersDir: 'app/subscriber',
   },
-}
+};
+
