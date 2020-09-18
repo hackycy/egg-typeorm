@@ -1,6 +1,6 @@
 {
   "name": "@hackycy/egg-typeorm",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "TypeORM For Eggjs",
   "eggPlugin": {
     "name": "typeorm"
@@ -41,12 +41,9 @@
     "autod": "autod"
   },
   "files": [
+    "config",
     "app.js",
-    "lib/**/*.js",
-    "package.json",
-    "README.md",
-    "LICENSE",
-    "CHANGELOG.md"
+    "lib"
   ],
   "ci": {
     "version": "8, 10"

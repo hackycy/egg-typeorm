@@ -1,11 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-  value: !0
+'use strict';
+Object.defineProperty(exports, '__esModule', {
+  value: !0,
 });
-const e = require("typeorm");
+const e = require('typeorm');
 exports.default = {
   get connection() {
-    return e.getConnection()
+    return e.getConnection();
   },
-  getConnection: t => e.getConnection(t)
+  getConnection: t => e.getConnection(t),
 };

@@ -1,68 +1,69 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-  value: !0
+'use strict';
+Object.defineProperty(exports, '__esModule', {
+  value: !0,
 });
-const t = "egg-typeorm";
+const t = 'egg-typeorm';
 exports.default = class {
   constructor(t, o) {
-    this.app = t, this.options = o
+    this.app = t, this.options = o;
   }
   logQuery(o, s) {
     const {
-      app: i
+      app: i,
     } = this;
-    if ("all" === this.options || !0 === this.options || this.options instanceof Array && -1 !== this.options.indexOf("query")) {
-      const n = o + (s && s.length ? " -- PARAMETERS: " + this.stringifyParams(s) : "");
-      i.logger.info(`[${t}] ${n}`)
+    if (this.options === 'all' || !0 === this.options || this.options instanceof Array && this.options.indexOf('query') !== -1) {
+      const n = o + (s && s.length ? ' -- PARAMETERS: ' + this.stringifyParams(s) : '');
+      i.logger.info(`[${t}] ${n}`);
     }
   }
   logQueryError(o, s, i) {
     const {
-      app: n
+      app: n,
     } = this;
-    if ("all" === this.options || !0 === this.options || this.options instanceof Array && -1 !== this.options.indexOf("error")) {
-      const r = s + (i && i.length ? " -- PARAMETERS: " + this.stringifyParams(i) : "");
-      n.logger.error(`[${t}] ${r}: ${o}`)
+    if (this.options === 'all' || !0 === this.options || this.options instanceof Array && this.options.indexOf('error') !== -1) {
+      const r = s + (i && i.length ? ' -- PARAMETERS: ' + this.stringifyParams(i) : '');
+      n.logger.error(`[${t}] ${r}: ${o}`);
     }
   }
   logQuerySlow(o, s, i) {
     const {
-      app: n
-    } = this, r = s + (i && i.length ? " -- PARAMETERS: " + this.stringifyParams(i) : "");
-    n.logger.info(`[${t}](${o}ms) ${r}`)
+        app: n,
+      } = this,
+      r = s + (i && i.length ? ' -- PARAMETERS: ' + this.stringifyParams(i) : '');
+    n.logger.info(`[${t}](${o}ms) ${r}`);
   }
   logSchemaBuild(o) {
     const {
-      app: s
+      app: s,
     } = this;
-    ("all" === this.options || this.options instanceof Array && -1 !== this.options.indexOf("schema")) && s.logger.info(`[${t}] ${o}`)
+    (this.options === 'all' || this.options instanceof Array && this.options.indexOf('schema') !== -1) && s.logger.info(`[${t}] ${o}`);
   }
   logMigration(o) {
     const {
-      app: s
+      app: s,
     } = this;
-    s.logger.info(`[${t}] ${o}`)
+    s.logger.info(`[${t}] ${o}`);
   }
   log(o, s) {
     const {
-      app: i
+      app: i,
     } = this;
     switch (o) {
-      case "log":
-        ("all" === this.options || this.options instanceof Array && -1 !== this.options.indexOf("log")) && i.logger.debug(`[${t}] ${s}`);
+      case 'log':
+        (this.options === 'all' || this.options instanceof Array && this.options.indexOf('log') !== -1) && i.logger.debug(`[${t}] ${s}`);
         break;
-      case "info":
-        ("all" === this.options || this.options instanceof Array && -1 !== this.options.indexOf("info")) && i.logger.info(`[${t}] ${s}`);
+      case 'info':
+        (this.options === 'all' || this.options instanceof Array && this.options.indexOf('info') !== -1) && i.logger.info(`[${t}] ${s}`);
         break;
-      case "warn":
-        ("all" === this.options || this.options instanceof Array && -1 !== this.options.indexOf("warn")) && i.logger.warn(`[${t}] ${s}`)
+      case 'warn':
+        (this.options === 'all' || this.options instanceof Array && this.options.indexOf('warn') !== -1) && i.logger.warn(`[${t}] ${s}`);
     }
   }
   stringifyParams(t) {
     try {
-      return JSON.stringify(t.map(t => "string" == typeof t && t.length > 255 ? `${t.substr(0,255)}...` : t))
+      return JSON.stringify(t.map(t => (typeof t === 'string' && t.length > 255 ? `${t.substr(0, 255)}...` : t)));
     } catch (o) {
-      return t
+      return t;
     }
   }
 };
