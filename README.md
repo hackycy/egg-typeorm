@@ -105,9 +105,9 @@ config.typeorm = {
 ```bash
 ├── controller
 │   └── home.ts
-├── entity
-    ├── Post.ts
-    └── User.ts
+├─  entity
+    └─sys
+      └── user.ts
 ```
 
 ### 实体文件
