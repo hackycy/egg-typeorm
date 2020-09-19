@@ -57,7 +57,9 @@ config.typeorm = {
   }
 ```
 
-> 该entities字段表示数据库的实体文件存放的路径；相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为['app/entity/**/*.{js,ts}']
+> 该entities字段表示数据库的实体文件存放的路径；
+>
+> 相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为['app/entity/**/*.{js,ts}']
 
 ### 多数据库连接配置
 
@@ -140,8 +142,11 @@ export default class UserController extends Controller {
 ```
 
 > 所有实体会加载在`ctx.entities`中, 所有仓库会加载到`ctx.repo`; 
+>
 > 多数据库时加载在对应的ctx.entities[connectName]与ctx.repo[connectionName]上; 
+>
 > 注意：使用name为default会直接挂载，不需要指定connectName
+>
 > typeorm.d.ts文件会在未来进行支持
 
 ### 使用QueryBuilder
