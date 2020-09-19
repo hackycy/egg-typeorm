@@ -136,6 +136,12 @@ export default User
 export default class UserController extends Controller {
   public async index() {
     const { ctx } = this
+    // 单数据库
+    // app/entity/sys/user.ts => ctx.repo.sys.User
+    // app/entity/user.ts => ctx.repo.User
+    // app/entity/admin/sys/user_role.ys => ctx.repo.admin.sys.UserRole
+    // 多数据库 例如获取db1
+    // ctx.repo['db1'].user，转换方式同上
     ctx.body = await ctx.repo.sys.User.find()
   }
 }
@@ -145,9 +151,9 @@ export default class UserController extends Controller {
 >
 > 多数据库时加载在对应的ctx.entities[connectName]与ctx.repo[connectionName]上; 
 >
-> 注意：使用name为default会直接挂载，不需要指定connectName
+> **注意：使用name为default会直接挂载，不需要指定connectName**
 >
-> typeorm.d.ts文件会在未来进行支持
+> .d.ts文件会在未来进行支持
 
 ### 使用QueryBuilder
 
