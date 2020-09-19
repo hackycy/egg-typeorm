@@ -37,21 +37,27 @@ const plugin: EggPlugin = {
 ```ts
 // {app_root}/config/config.default.ts
 config.typeorm = {
-  client: {
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'test',
-    password: 'test',
-    database: 'test',
-    synchronize: true,
-    logging: false,
-    entitiesdir: 'app/entity', //该字段必须配置
+    client: {
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '123456',
+      database: 'test',
+      synchronize: true,
+      logging: false,
+    },
+    // 该字段必须配置
+    entities: [
+      {
+        entitiesDir: 'app/entity',
+        name: 'default', // 使用client 则设置name为default
+      },
+    ]
   }
-}
 ```
 
-> 该文件表示数据库的实体文件存放的路径；相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为['app/entity/**/*.{js,ts}']
+> 该entities字段表示数据库的实体文件存放的路径；相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为['app/entity/**/*.{js,ts}']
 
 ### 多数据库连接配置
 
@@ -67,7 +73,6 @@ config.typeorm = {
     password: "admin",
     database: "db1",
     synchronize: true,
-    entitiesdir: 'app/entity/db1'
   }, {
     name: "model2",
     type: "mysql",
@@ -78,7 +83,18 @@ config.typeorm = {
     database: "db2",
     synchronize: true,
     entitiesdir: 'app/entity/db2'
-  }]
+  }],
+  // name 会根据clients中的name进行匹配实体文件存放
+  entities: [
+      {
+        entitiesDir: 'app/entity/db1',
+        name: 'model1',
+      },
+      {
+        entitiesDir: 'app/entity/db2',
+        name: 'model1',
+      },
+    ]
 }
 ```
 
@@ -95,7 +111,7 @@ config.typeorm = {
 ### 实体文件
 
 ```ts
-// app/entity/User.ts
+// app/entity/sys/user.ts
 
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
@@ -118,11 +134,15 @@ export default User
 export default class UserController extends Controller {
   public async index() {
     const { ctx } = this
-    ctx.body = await ctx.repo.User.find()
+    ctx.body = await ctx.repo.sys.User.find()
   }
 }
 ```
-所有实体会加载在ctx.entities中, 所有仓库会加载到ctx.repo; 多数据库时加载在对应的ctx.entities[connectName]与ctx.repo[connectionName]上; 详见typings/typeorm.d.ts文件
+
+> 所有实体会加载在`ctx.entities`中, 所有仓库会加载到`ctx.repo`; 
+> 多数据库时加载在对应的ctx.entities[connectName]与ctx.repo[connectionName]上; 
+> 注意：使用name为default会直接挂载，不需要指定connectName
+> typeorm.d.ts文件会在未来进行支持
 
 ### 使用QueryBuilder
 
@@ -148,13 +168,14 @@ egg-typeorm 版本 | egg 1.x
 1.x | 😁
 0.x | ❌
 
-### 依赖的插件
+### 已依赖的第三方库
 
 - [globby](https://www.npmjs.com/package/globby)
+- [typeorm](https://typeorm.io/#/)
 
-## 提问交流
+## 有BUG
 
-请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
+请直接提出[issues](https://github.com/hackycy/egg-typeorm/issues)
 
 ## License
 
