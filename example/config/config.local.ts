@@ -13,9 +13,14 @@ export default () => {
       password: '123456',
       database: 'test',
       synchronize: true,
-      logging: false,
-      entitiesDir: 'app/entity', //该字段必须配置
-    }
+      logging: false, //该字段必须配置
+    },
+    entities: [
+      {
+        entitiesDir: 'app/entity',
+        name: 'default'
+      }
+    ]
   }
   return config;
 };
