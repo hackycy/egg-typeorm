@@ -1,5 +1,10 @@
 import { ConnectionOptions, Connection } from 'typeorm'
+
 declare module 'egg' {
+
+  interface PluginConnectionOptions extends ConnectionOptions {
+    entitiesDir?: string
+  }
 
   // interface Context {
   //   connection: Connection
@@ -11,11 +16,11 @@ declare module 'egg' {
       /**
        * @description typeorm conn option
        */
-      client?: ConnectionOptions;
+      client?: PluginConnectionOptions;
       /**
        * @description typeorm conns option
        */
-      clients?: Array<ConnectionOptions>;
+      clients?: Array<PluginConnectionOptions>;
     },
   }
 }
