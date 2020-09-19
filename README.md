@@ -184,7 +184,7 @@ egg-typeorm 版本 | egg 1.x
 - [globby](https://www.npmjs.com/package/globby)
 - [typeorm](https://typeorm.io/#/)
 
-## 有BUG
+## 有问题或Bug
 
 请直接提出[issues](https://github.com/hackycy/egg-typeorm/issues)
 
