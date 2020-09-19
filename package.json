@@ -12,11 +12,8 @@
   ],
   "dependencies": {
     "chokidar": "^3.4.2",
-    "fs-extra": "^9.0.1",
-    "fs-jetpack": "^3.1.0",
     "globby": "^11.0.1",
     "prettier": "^2.1.2",
-    "typedi": "^0.8.0",
     "typeorm": "^0.2.26"
   },
   "devDependencies": {
@@ -42,9 +39,13 @@
     "autod": "autod"
   },
   "files": [
-    "config",
     "app.js",
-    "lib"
+    "lib/**/*.js",
+    "package.json",
+    "index.d.ts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "ci": {
     "version": "8, 10"
