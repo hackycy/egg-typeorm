@@ -1,6 +1,6 @@
 'use strict';
 
-const { connect, loadEntityAndRepoToContext } = require('./lib/connect');
+const { connect } = require('./lib/connect');
 const { getConnectionOptions } = require('./lib/utils');
 
 class AppBootHook {
@@ -18,13 +18,12 @@ class AppBootHook {
     // 所有的配置已经加载完毕
     // 可以用来加载应用自定义的文件，启动自定义的服务
     try {
+      this.app.logger.info('[typeorm]', 'start connect database');
       const connectionOptions = getConnectionOptions(this.app);
       await connect(this.app, connectionOptions);
-      // }
-      await loadEntityAndRepoToContext(this.app, connectionOptions);
-      this.app.logger.info('[typeorm]', '数据链接成功');
+      this.app.logger.info('[typeorm]', 'conect dababase success');
     } catch (error) {
-      this.app.logger.error('[typeorm]', '数据库链接失败');
+      this.app.logger.error('[typeorm]', 'conect dababase fail');
       this.app.logger.error(error);
     }
   }
