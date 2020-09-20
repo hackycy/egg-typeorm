@@ -30,6 +30,20 @@ const plugin: EggPlugin = {
 }
 ```
 
+### 配置ormconfig.yaml
+
+``` yaml
+default: //默认连接
+  entitiesDir: app/entity/db1
+
+db2: //多数据库连接
+  entitiesDir: app/entity/db2
+```
+
+>  该文件表示数据库的实体文件存放的路径；
+>
+> 相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为`['app/entity/**/*.{js,ts}']`，**只需配置目录**
+
 ### 配置config.{env}.ts
 
 [connection-options](https://typeorm.io/#/connection-options)
@@ -46,20 +60,9 @@ config.typeorm = {
       database: 'test',
       synchronize: true,
       logging: false,
-    },
-    // 该字段必须配置
-    entities: [
-      {
-        entitiesDir: 'app/entity',
-        name: 'default', // 使用client 则设置name为default
-      },
-    ]
+    }
   }
 ```
-
-> 该entities字段表示数据库的实体文件存放的路径；
->
-> 相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为['app/entity/**/*.{js,ts}']
 
 ### 多数据库连接配置
 
@@ -67,7 +70,7 @@ config.typeorm = {
 // {app_root}/config/config.default.ts
 config.typeorm = {
   clients: [{
-    name: "model1",
+    name: "default",
     type: "mysql",
     host: "localhost",
     port: 3306,
@@ -84,18 +87,7 @@ config.typeorm = {
     password: "admin",
     database: "db2",
     synchronize: true,
-  }],
-  // name 会根据clients中的name进行匹配实体文件存放
-  entities: [
-      {
-        entitiesDir: 'app/entity/db1',
-        name: 'model1',
-      },
-      {
-        entitiesDir: 'app/entity/db2',
-        name: 'model1',
-      },
-    ]
+  }]
 }
 ```
 
@@ -148,11 +140,11 @@ export default class UserController extends Controller {
 
 > 所有实体会加载在`ctx.entities`中, 所有仓库会加载到`ctx.repo`; 
 >
-> 多数据库时加载在对应的ctx.entities[connectName]与ctx.repo[connectionName]上; 
+> 多数据库时加载在对应的`ctx.entities[connectName]`与`ctx.repo[connectionName]`上; 
 >
 > **注意：使用name为default会直接挂载，不需要指定connectName**
 >
-> .d.ts文件会在未来进行支持
+> 详细可以查看项目下typings文件夹下的`typeorm.d.ts`
 
 ### 使用QueryBuilder
 
@@ -169,14 +161,18 @@ export default class UserController extends Controller {
 }
 ```
 
+> 具体使用可查看exmaple使用案例以及TypeORM使用文档
+
 ## 依赖的第三方库
 
 - [globby](https://www.npmjs.com/package/globby)
 - [typeorm](https://typeorm.io/#/)
+- [js-yaml](https://www.npmjs.com/package/js-yaml)
+- [prettier](https://github.com/prettier/prettier)
 
 ## 有问题或Bug
 
-请直接提出[issues](https://github.com/hackycy/egg-typeorm/issues)
+请提出[issues](https://github.com/hackycy/egg-typeorm/issues)
 
 ## License
 
