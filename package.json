@@ -33,7 +33,6 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "chokidar": "^3.4.2",
     "globby": "^11.0.1",
     "js-yaml": "^3.14.0",
     "prettier": "^2.1.2",
