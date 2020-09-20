@@ -7,11 +7,6 @@ declare module 'egg' {
     getConnection(connectionName?: string): Connection
   }
 
-  interface EntityDirOptions {
-    entitiesDir?: string,
-    name?: string
-  }
-
   interface EggAppConfig {
     typeorm: {
       /**
@@ -22,10 +17,6 @@ declare module 'egg' {
        * @description typeorm conns option
        */
       clients?: Array<ConnectionOptions>
-      /**
-       * @description typeorm entity dir
-       */
-      entities?: Array<EntityDirOptions>
     },
   }
 }
