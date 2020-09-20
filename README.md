@@ -138,9 +138,9 @@ export default class UserController extends Controller {
 }
 ```
 
-> 所有实体会加载在`ctx.entities`中, 所有仓库会加载到`ctx.repo`; 
+> 所有实体会加载在`ctx.entity`中, 所有仓库会加载到`ctx.repo`; 
 >
-> 多数据库时加载在对应的`ctx.entities[connectName]`与`ctx.repo[connectionName]`上; 
+> 多数据库时加载在对应的`ctx.entity[connectName]`与`ctx.repo[connectionName]`上; 
 >
 > **注意：使用name为default会直接挂载，不需要指定connectName**
 >
