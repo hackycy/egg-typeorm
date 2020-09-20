@@ -169,16 +169,7 @@ export default class UserController extends Controller {
 }
 ```
 
-## 依赖说明
-
-### 依赖的 egg 版本
-
-egg-typeorm 版本 | egg 1.x
---- | ---
-1.x | 😁
-0.x | ❌
-
-### 已依赖的第三方库
+## 依赖的第三方库
 
 - [globby](https://www.npmjs.com/package/globby)
 - [typeorm](https://typeorm.io/#/)
