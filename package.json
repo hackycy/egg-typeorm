@@ -1,9 +1,31 @@
 {
   "name": "@hackycy/egg-typeorm",
-  "version": "0.1.4",
+  "version": "0.1.17",
   "description": "TypeORM For Eggjs",
   "eggPlugin": {
     "name": "typeorm"
+  },
+  "egg": {
+    "typescript": true,
+    "framework": "egg",
+    "tsHelper": {
+      "watchDirs": {
+        "typeorm": {
+          "trigger": [
+            "add",
+            "unlink",
+            "change"
+          ],
+          "enabled": true,
+          "directory": ".",
+          "generator": "@hackycy/egg-typeorm/generator",
+          "pattern": [
+            "**/*.(ts|js)"
+          ],
+          "watch": true
+        }
+      }
+    }
   },
   "keywords": [
     "egg",
@@ -24,6 +46,7 @@
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
+    "egg-ts-helper": "^1.25.8",
     "eslint": "^5.13.0",
     "eslint-config-egg": "^7.1.0"
   },
@@ -41,6 +64,7 @@
   },
   "files": [
     "app.js",
+    "generator.js",
     "lib/**/*.js",
     "app/**/*.js",
     "package.json",
