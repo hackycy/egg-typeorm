@@ -1,0 +1,5 @@
+default:
+  entitiesDir: app/entity/db1
+
+db2:
+  entitiesDir: app/entity/db2

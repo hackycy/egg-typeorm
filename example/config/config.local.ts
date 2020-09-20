@@ -5,20 +5,28 @@ export default () => {
 
   // typeorm
   config.typeorm = {
-    client: {
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '123456',
-      database: 'test',
-      synchronize: true,
-      logging: false, //该字段必须配置
-    },
-    entities: [
+    clients: [
       {
-        entitiesDir: 'app/entity',
-        name: 'default'
+        name: 'default',
+        type: 'mysql',
+        host: 'localhost',
+        port: 3306,
+        username: 'root',
+        password: '123456',
+        database: 'test',
+        synchronize: true,
+        logging: false,
+      },
+      {
+        name: 'db2',
+        type: 'mysql',
+        host: 'localhost',
+        port: 3306,
+        username: 'root',
+        password: '123456',
+        database: 'test',
+        synchronize: true,
+        logging: false,
       }
     ]
   }
