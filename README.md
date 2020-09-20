@@ -84,7 +84,6 @@ config.typeorm = {
     password: "admin",
     database: "db2",
     synchronize: true,
-    entitiesdir: 'app/entity/db2'
   }],
   // name 会根据clients中的name进行匹配实体文件存放
   entities: [
