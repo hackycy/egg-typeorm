@@ -1,6 +1,6 @@
 'use strict';
 
-const { connect } = require('./lib/connect');
+const { connect, closeConnection } = require('./lib/connect');
 const { getConnectionOptions } = require('./lib/utils');
 
 class AppBootHook {
@@ -14,9 +14,11 @@ class AppBootHook {
     }
   }
 
+  /**
+   * 所有的配置已经加载完毕
+   * 可以用来加载应用自定义的文件，启动自定义的服务
+   */
   async didLoad() {
-    // 所有的配置已经加载完毕
-    // 可以用来加载应用自定义的文件，启动自定义的服务
     try {
       this.app.logger.info('[typeorm]', 'start connect database');
       const connectionOptions = getConnectionOptions(this.app);
@@ -26,6 +28,14 @@ class AppBootHook {
       this.app.logger.error('[typeorm]', 'conect dababase fail');
       this.app.logger.error(error);
     }
+  }
+
+  /**
+   * 应用即将关闭
+   */
+  async beforeClose() {
+    // 关闭连接
+    await closeConnection();
   }
 
 }
