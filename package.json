@@ -74,6 +74,7 @@
     "README.md",
     "LICENSE"
   ],
+  "types": "index.d.ts",
   "ci": {
     "version": "8, 10"
   },
