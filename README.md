@@ -32,11 +32,13 @@ const plugin: EggPlugin = {
 
 ### 配置ormconfig.yaml
 
+在项目根目录添加`ormconfig.yaml`文件，并添加以下配置
+
 ``` yaml
 default: //默认连接
   entitiesDir: app/entity/db1
 
-db2: //多数据库连接
+db2: //多数据库连接时配置
   entitiesDir: app/entity/db2
 ```
 
