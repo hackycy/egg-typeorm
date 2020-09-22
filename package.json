@@ -1,12 +1,36 @@
 {
   "name": "@hackycy/egg-typeorm",
-  "version": "0.2.3",
+  "version": "0.2.6",
   "description": "TypeORM For Eggjs",
   "eggPlugin": {
     "name": "typeorm"
   },
+  "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin",
+    "typeorm"
+  ],
+  "dependencies": {
+    "globby": "^11.0.1",
+    "js-yaml": "^3.14.0",
+    "prettier": "^2.1.2",
+    "typeorm": "^0.2.26"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.16.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "egg-ts-helper": "^1.25.8",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0",
+    "ts-node": "^9.0.0"
+  },
   "egg": {
-    "typescript": true,
     "framework": "egg",
     "tsHelper": {
       "watchDirs": {
@@ -20,34 +44,13 @@
           "directory": ".",
           "generator": "@hackycy/egg-typeorm/generator",
           "pattern": [
-            "**/*.(ts|js)"
+            "**/*.(ts|js)",
+            "ormconfig.json"
           ],
           "watch": true
         }
       }
     }
-  },
-  "keywords": [
-    "egg",
-    "eggPlugin",
-    "egg-plugin"
-  ],
-  "dependencies": {
-    "globby": "^11.0.1",
-    "js-yaml": "^3.14.0",
-    "prettier": "^2.1.2",
-    "typeorm": "^0.2.26"
-  },
-  "devDependencies": {
-    "autod": "^3.0.1",
-    "autod-egg": "^1.1.0",
-    "egg": "^2.16.0",
-    "egg-bin": "^4.11.0",
-    "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "egg-ts-helper": "^1.25.8",
-    "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
   },
   "engines": {
     "node": ">=8.0.0"
