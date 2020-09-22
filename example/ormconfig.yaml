@@ -3,3 +3,6 @@ default:
 
 db2:
   entitiesDir: app/entity/db2
+
+db3:
+  entitiesDir: app/entity/db3
