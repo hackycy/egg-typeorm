@@ -15,7 +15,7 @@ export default () => {
         password: '123456',
         database: 'test',
         synchronize: true,
-        logging: false,
+        logging: 'all',
       },
       {
         name: 'db2',
@@ -26,7 +26,7 @@ export default () => {
         password: '123456',
         database: 'test2',
         synchronize: true,
-        logging: false,
+        logging: 'all',
       },
       {
         name: 'db3',
@@ -37,7 +37,7 @@ export default () => {
         password: '123456',
         database: 'test3',
         synchronize: true,
-        logging: false,
+        logging: 'all',
       }
     ]
   }
