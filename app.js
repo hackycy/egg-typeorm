@@ -26,7 +26,7 @@ class AppBootHook {
       this.app.logger.info('[typeorm]', 'conect dababase success');
     } catch (error) {
       this.app.logger.error('[typeorm]', 'conect dababase fail');
-      this.app.logger.error(error);
+      throw error;
     }
   }
 
