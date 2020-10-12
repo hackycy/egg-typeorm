@@ -1,10 +1,12 @@
-import { ConnectionOptions, Connection } from 'typeorm'
+import { ConnectionOptions, Connection, EntityManager } from 'typeorm'
 
 declare module 'egg' {
 
   interface Context {
-    connection: Connection
-    getConnection(connectionName?: string): Connection
+    ormConnection: Connection
+    getOrmConnection(connectionName?: string): Connection
+    ormManager: EntityManager
+    getOrmManager(connectionName?: string): EntityManager
   }
 
   interface EggAppConfig {

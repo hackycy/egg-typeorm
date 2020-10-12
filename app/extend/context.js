@@ -1,13 +1,21 @@
 'use strict';
 
-const { getConnection } = require('typeorm');
+const { getConnection, getManager } = require('typeorm');
 
 module.exports = {
-  get connection() {
+  // Connection
+  get ormConnection() {
     return getConnection();
   },
-  getConnection(name) {
+  getOrmConnection(name) {
     return getConnection(name);
+  },
+  // Manager
+  get ormManager() {
+    return getManager();
+  },
+  getOrmManager(name) {
+    return getManager(name);
   },
 };
 
