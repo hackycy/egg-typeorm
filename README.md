@@ -174,13 +174,13 @@ export default class UserController extends Controller {
 **getConnection**
 
 ``` typescript
-this.ctx.ormConnection() || this.ctx.getOrmConnection('connectionName')
+this.ctx.ormConnection || this.ctx.getOrmConnection('connectionName')
 ```
 
 **getManager**
 
 ```typescript
-this.ctx.ormManager() || this.ctx.getOrmManager('connectionName')
+this.ctx.ormManager || this.ctx.getOrmManager('connectionName')
 ```
 
 ## 依赖的第三方库
