@@ -169,6 +169,20 @@ export default class UserController extends Controller {
 
 插件默认自定义了一个基于Egg的Logger模块实现的日志记录器。如果配置中没有进行配置`connection-options`中的`logger`，则会默认使用插件提供日志记录器。如果想要更换或者使用原来TypeOrm提供的只需要配置对应字段即可。
 
+### 框架内置Context扩展
+
+**getConnection**
+
+``` typescript
+this.ctx.ormConnection() || this.ctx.getOrmConnection('connectionName')
+```
+
+**getManager**
+
+```typescript
+this.ctx.ormManager() || this.ctx.getOrmManager('connectionName')
+```
+
 ## 依赖的第三方库
 
 - [globby](https://www.npmjs.com/package/globby)
