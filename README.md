@@ -93,6 +93,8 @@ config.typeorm = {
 }
 ```
 
+> 注意：如果定义了clients，插件会直接忽略掉client的配置，只能二选一配置
+
 ### 创建实体
 
 ```bash
@@ -171,13 +173,13 @@ export default class UserController extends Controller {
 
 ### 框架内置Context扩展
 
-**getConnection**
+**获取getConnection**
 
 ``` typescript
 this.ctx.ormConnection || this.ctx.getOrmConnection('connectionName')
 ```
 
-**getManager**
+**获取getManager**
 
 ```typescript
 this.ctx.ormManager || this.ctx.getOrmManager('connectionName')
