@@ -23,9 +23,9 @@ class AppBootHook {
       this.app.logger.info('[typeorm]', 'start connect database');
       const connectionOptions = getConnectionOptions(this.app);
       await connect(this.app, connectionOptions);
-      this.app.logger.info('[typeorm]', 'conect dababase success');
+      this.app.logger.info('[typeorm]', 'connect database success');
     } catch (error) {
-      this.app.logger.error('[typeorm]', 'conect dababase fail');
+      this.app.logger.error('[typeorm]', 'connect database fail');
       throw error;
     }
   }
