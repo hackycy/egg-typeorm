@@ -5,6 +5,7 @@
   "username": "root",
   "password": "123456",
   "database": "test",
+  "entitiesDir" : "app/entity/db1",
   "entities": ["app/entity/db1/**/*.js"],
   "migrations": ["migration/*.js"],
   "cli": {
