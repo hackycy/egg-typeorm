@@ -1,3 +1,4 @@
+"test": "测试迁移使用，如需使用请删除后缀并删除该段文字"
 {
   "type": "mysql",
   "host": "localhost",
