@@ -1,0 +1,14 @@
+[
+  {
+    "name": "default",
+    "entitiesDir": "app/entity/db1"
+  },
+  {
+    "name": "db2",
+    "entitiesDir": "app/entity/db2"
+  },
+  {
+    "name": "db3",
+    "entitiesDir": "app/entity/db3"
+  }
+]
