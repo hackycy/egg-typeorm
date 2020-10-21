@@ -30,11 +30,14 @@ const plugin: EggPlugin = {
 }
 ```
 
-### 配置ormconfig.yaml
+### 配置实体存放目录
 
-在项目根目录添加`ormconfig.yaml`文件，并添加以下配置
+在项目根目录添加`ormconfig.{js|json|yaml|yml}`文件（支持后缀中的任意一种配置即可）
+
+**ormconfig.yaml或ormconfig.yml**
 
 ``` yaml
+# yaml || yml
 default: //默认连接
   entitiesDir: app/entity/db1
 
@@ -42,7 +45,53 @@ db2: //多数据库连接时配置
   entitiesDir: app/entity/db2
 ```
 
->  该文件表示数据库的实体文件存放的路径；
+**ormconfig.json**
+
+``` json
+// 单数据库连接
+{
+  "entitiesDir": "app/entity/db2",
+}
+// 多数据库连接
+[
+  {
+    "name": "default",
+    "entitiesDir": "app/entity/db1"
+  },
+  {
+    "name": "db2",
+    "entitiesDir": "app/entity/db2"
+  }
+]
+```
+
+**ormconfig.js**
+
+``` javascript
+// 单数据库连接
+module.exports = {
+  type: "mysql",
+  host: "localhost",
+  port: 3306,
+  username: "test",
+  password: "test",
+  database: "test"
+};
+
+// 多数据库连接
+module.exports = [
+  {
+    name: 'default',
+    entitiesDir: "app/entity/db1"
+  }，
+  {
+    name: 'db2',
+    entitiesDir: "app/entity/db2"
+  }
+];
+```
+
+>  **entitiesDir**表示数据库的实体文件存放的路径；
 >
 > 相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为`['app/entity/**/*.{js,ts}']`，**只需配置目录**
 
