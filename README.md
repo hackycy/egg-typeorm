@@ -34,37 +34,6 @@ const plugin: EggPlugin = {
 
 在项目根目录添加`ormconfig.{js|json|yaml|yml}`文件（配置支持后缀中的任意一种即可）
 
-**ormconfig.yaml或ormconfig.yml**
-
-``` yaml
-# yaml || yml
-default: //默认连接
-  entitiesDir: app/entity/db1
-
-db2: //多数据库连接时配置
-  entitiesDir: app/entity/db2
-```
-
-**ormconfig.json**
-
-``` json
-// 单数据库连接
-{
-  "entitiesDir": "app/entity/db2",
-}
-// 多数据库连接
-[
-  {
-    "name": "default",
-    "entitiesDir": "app/entity/db1"
-  },
-  {
-    "name": "db2",
-    "entitiesDir": "app/entity/db2"
-  }
-]
-```
-
 **ormconfig.js**
 
 ``` javascript
@@ -73,7 +42,7 @@ module.exports = {
   entitiesDir: "app/entity/db1"
 };
 
-// 多数据库连接
+// 或者多数据库连接
 module.exports = [
   {
     name: 'default',
@@ -86,9 +55,44 @@ module.exports = [
 ];
 ```
 
+**ormconfig.json**
+
+``` json
+// 单数据库连接
+{
+  "entitiesDir": "app/entity/db2",
+}
+// 或者多数据库连接
+[
+  {
+    "name": "default",
+    "entitiesDir": "app/entity/db1"
+  },
+  {
+    "name": "db2",
+    "entitiesDir": "app/entity/db2"
+  }
+]
+```
+
+**ormconfig.yaml或ormconfig.yml**
+
+``` yaml
+# yaml || yml
+default: //默认连接
+  entitiesDir: app/entity/db1
+
+db2: //或者多数据库连接时配置
+  entitiesDir: app/entity/db2
+```
+
 >  **entitiesDir**表示数据库的实体文件存放的路径；
 >
-> 相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为`['app/entity/**/*.{js,ts}']`，**只需配置目录**
+>  js、json、yaml、yml插件会按照该顺序查找对应ormconfig后缀的文件，找到则不会再使用其它后缀的配置。
+>
+>  注意这里是有优先级的。
+>
+>  相当于[connection-options](https://typeorm.io/#/connection-options)中entities配置项为`['app/entity/**/*.{js,ts}']`，**只需配置目录**
 
 ### 配置config.{env}.ts
 
