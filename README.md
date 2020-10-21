@@ -32,7 +32,7 @@ const plugin: EggPlugin = {
 
 ### 配置实体存放目录
 
-在项目根目录添加`ormconfig.{js|json|yaml|yml}`文件（支持后缀中的任意一种配置即可）
+在项目根目录添加`ormconfig.{js|json|yaml|yml}`文件（配置支持后缀中的任意一种即可）
 
 **ormconfig.yaml或ormconfig.yml**
 
