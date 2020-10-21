@@ -70,12 +70,7 @@ db2: //多数据库连接时配置
 ``` javascript
 // 单数据库连接
 module.exports = {
-  type: "mysql",
-  host: "localhost",
-  port: 3306,
-  username: "test",
-  password: "test",
-  database: "test"
+  entitiesDir: "app/entity/db1"
 };
 
 // 多数据库连接
