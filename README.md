@@ -8,7 +8,7 @@
 [download-image]: https://img.shields.io/npm/dm/@hackycy/egg-typeorm.svg?style=flat-square
 [download-url]: https://npmjs.org/package/@hackycy/egg-typeorm
 
-[TypeORM](https://typeorm.io/#/) plugin for Egg.js.
+[TypeORM](https://github.com/typeorm/typeorm) plugin for Egg.js.
 
 ## 安装
 
