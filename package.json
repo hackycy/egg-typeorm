@@ -46,7 +46,10 @@
           "generator": "@hackycy/egg-typeorm/generator",
           "pattern": [
             "**/*.(ts|js)",
-            "ormconfig.json"
+            "ormconfig.js",
+            "ormconfig.json",
+            "ormconfig.yml",
+            "ormconfig.yaml"
           ],
           "watch": true
         }
