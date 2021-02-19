@@ -13,4 +13,10 @@ describe('test/app/service/Test.test.js', () => {
     const result = await ctx.service.test.sayHi('egg');
     assert(result === 'hi, egg');
   });
+
+  it('saveUser', async () => {
+    await ctx.service.test.save({ id: 3, loginID: 'some', name: 'test' });
+    const result = await ctx.service.test.findById(3);
+    assert(result);
+  });
 });

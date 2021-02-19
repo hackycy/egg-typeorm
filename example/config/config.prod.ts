@@ -38,8 +38,8 @@ export default () => {
         database: 'test3',
         synchronize: true,
         logging: 'all',
-      }
-    ]
-  }
+      },
+    ],
+  };
   return config;
 };

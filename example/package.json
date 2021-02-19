@@ -22,7 +22,7 @@
     "clean": "ets clean"
   },
   "dependencies": {
-    "@hackycy/egg-typeorm": "0.3.7",
+    "@hackycy/egg-typeorm": "0.4.0",
     "egg": "^2.6.1",
     "egg-scripts": "^2.6.0",
     "mysql": "^2.18.1"
