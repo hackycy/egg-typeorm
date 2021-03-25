@@ -11,6 +11,7 @@ declare module 'egg' {
 
   interface EggAppConfig {
     typeorm: {
+      prodEnv?: string | string[]
       // @description config mode use json|yml|yaml|js，not egg config
       // withoutDir?: boolean
       /**
