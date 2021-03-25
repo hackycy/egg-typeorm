@@ -219,6 +219,20 @@ export default class UserController extends Controller {
 
 插件默认自定义了一个基于Egg的Logger模块实现的日志记录器。如果配置中没有进行配置`connection-options`中的`logger`，则会默认使用插件提供日志记录器。如果想要更换或者使用原来TypeOrm提供的只需要配置对应字段即可。
 
+### 自定义环境
+
+常规开发流程可能不仅仅只有prod才是预设的生产环境，可通过该配置来自定义环境来适应自己的开发流程。
+
+``` js
+config.typeorm = {
+  prodEnv: [ 'prod', 'stagging' ]
+}
+// or
+config.typeorm = {
+  prodEnv: 'prod'
+}
+```
+
 ### 框架内置Context扩展
 
 **获取getConnection**
