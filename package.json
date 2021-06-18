@@ -14,11 +14,11 @@
   "dependencies": {
     "globby": "^11.0.1",
     "js-yaml": "^3.14.0",
-    "prettier": "^2.1.2",
-    "typeorm": "^0.2.31"
+    "prettier": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.11.2",
+    "typeorm": "^0.2.31",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "egg": "^2.16.0",
