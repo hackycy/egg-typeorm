@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-$ npm install -S @hackycy/egg-typeorm mysql
+$ npm install -S @hackycy/egg-typeorm typeorm mysql
 ```
 
 ## 使用
