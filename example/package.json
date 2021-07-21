@@ -22,10 +22,11 @@
     "clean": "ets clean"
   },
   "dependencies": {
-    "@hackycy/egg-typeorm": "0.4.1",
+    "@hackycy/egg-typeorm": "0.5.1",
     "egg": "^2.6.1",
     "egg-scripts": "^2.6.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "typeorm": "^0.2.34"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
