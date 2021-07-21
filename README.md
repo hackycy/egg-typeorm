@@ -169,6 +169,7 @@ class User {
   name: string
 }
 
+// 注意：这里必须要以 default 导出， 否则插件无法查找到定义的类文件
 export default User
 ```
 
