@@ -214,7 +214,9 @@ export default class UserController extends Controller {
 }
 ```
 
-> 具体使用可查看exmaple使用案例以及TypeORM使用文档
+> 具体使用可查看[exmaple](https://github.com/hackycy/egg-typeorm/tree/main/example)使用案例
+> 
+> 实战示例可参考：[sf-egg-admin](https://github.com/hackycy/sf-egg-admin)
 
 ### 日志
 
