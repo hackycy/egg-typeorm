@@ -222,7 +222,9 @@ export default class UserController extends Controller {
 
 ### 自定义环境
 
-常规开发流程可能不仅仅只有prod才是预设的生产环境，可通过该配置来自定义环境来适应自己的开发流程。
+常规开发流程可能不仅仅只有**prod**才是预设的生产环境，可通过该配置来自定义环境来适应自己的开发流程。
+
+> 用于区分开发环境及生产环境，开发环境使用的`ts-node`运行，生产环境应需要把TS编译成JS再运行。
 
 ``` js
 config.typeorm = {
